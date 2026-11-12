@@ -1,0 +1,350 @@
+Ex. 7 React Lab Exercise: Frame-Based Layout Using React Components 
+1. Aim 
+To develop a simple frame-based webpage layout using React components, consisting of a 
+Header, Sidebar, Content area, and Footer. 
+ 
+2. Objectives 
+After completing this experiment, students will be able to: 
+1. Create a React application using Vite. 
+2. Understand the concept of a frame-based webpage layout. 
+3. Create reusable React components. 
+4. Divide a webpage into Header, Sidebar, Content, and Footer sections. 
+5. Apply CSS to arrange React components. 
+6. Understand how components work together to create a complete webpage. 
+ 
+3. Software Requirements 
+• Node.js 
+• Visual Studio Code 
+• React 
+• Vite 
+• Web Browser 
+ 
+4. Create React Project 
+Open the terminal in VS Code. 
+npm create vite@latest react-frame 
+Select: 
+Framework: React 
+Variant: JavaScript 
+Then: 
+cd react-frame 
+npm install 
+npm run dev 
+Open the URL displayed in the terminal. 
+Usually: 
+
+http://localhost:5173 
+ 
+5. Project Structure 
+Create the following structure: 
+react-frame/ 
+│ 
+├── src/ 
+│   ├── components/ 
+│   │   ├── Header.jsx 
+│   │   ├── Sidebar.jsx 
+│   │   ├── Content.jsx 
+│   │   └── Footer.jsx 
+│   │ 
+│   ├── App.jsx 
+│   ├── App.css 
+│   └── main.jsx 
+│ 
+├── index.html 
+└── package.json 
+ 
+6. Step 1 – Create Header Component 
+Create: 
+src/components/Header.jsx 
+Write: 
+function Header() { 
+  return ( 
+    <header className="header"> 
+      <h1>Student Management System</h1> 
+    </header> 
+  ); 
+} 
+ 
+export default Header; 
+The Header component displays the title of the application. 
+ 
+7. Step 2 – Create Sidebar Component 
+Create: 
+src/components/Sidebar.jsx 
+Write: 
+ 
+ 
+function Sidebar() { 
+  return ( 
+    <aside className="sidebar"> 
+
+      <h3>Menu</h3> 
+ 
+      <ul> 
+        <li>Home</li> 
+        <li>Students</li> 
+        <li>Courses</li> 
+        <li>Contact</li> 
+      </ul> 
+    </aside> 
+  ); 
+} 
+ 
+export default Sidebar; 
+The Sidebar contains the navigation menu. 
+ 
+8. Step 3 – Create Content Component 
+Create: 
+src/components/Content.jsx 
+Write: 
+function Content() { 
+  return ( 
+    <main className="content"> 
+      <h2>Welcome to Student Management System</h2> 
+ 
+      <p> 
+        This is the main content area of the React application. 
+      </p> 
+ 
+      <p> 
+        React components can be arranged together 
+        to create different webpage layouts. 
+      </p> 
+    </main> 
+  ); 
+} 
+ 
+export default Content; 
+ 
+9. Step 4 – Create Footer Component 
+Create: 
+src/components/Footer.jsx 
+Write: 
+ 
+ 
+ 
+function Footer() { 
+  return ( 
+
+    <footer className="footer"> 
+      <p>© 2026 Student Management System</p> 
+    </footer> 
+  ); 
+} 
+ 
+export default Footer; 
+ 
+10. Step 5 – Use Components in App.jsx 
+Open: 
+src/App.jsx 
+Replace the existing code: 
+import Header from "./components/Header"; 
+import Sidebar from "./components/Sidebar"; 
+import Content from "./components/Content"; 
+import Footer from "./components/Footer"; 
+ 
+import "./App.css"; 
+ 
+function App() { 
+  return ( 
+    <div className="app"> 
+ 
+      <Header /> 
+ 
+      <div className="main"> 
+        <Sidebar /> 
+        <Content /> 
+      </div> 
+ 
+      <Footer /> 
+ 
+    </div> 
+  ); 
+} 
+ 
+export default App; 
+ 
+11. Step 6 – Add CSS 
+Open: 
+src/App.css 
+Write: 
+ 
+ 
+ 
+ 
+ 
+* { 
+
+  box-sizing: border-box; 
+} 
+ 
+body { 
+  margin: 0; 
+  font-family: Arial, sans-serif; 
+} 
+ 
+.app { 
+  min-height: 100vh; 
+} 
+ 
+.header { 
+  background-color: #1976d2; 
+  color: white; 
+  padding: 20px; 
+  text-align: center; 
+} 
+ 
+.main { 
+  display: flex; 
+  min-height: 400px; 
+} 
+ 
+.sidebar { 
+  width: 220px; 
+  background-color: #eeeeee; 
+  padding: 20px; 
+} 
+ 
+.sidebar ul { 
+  list-style: none; 
+  padding: 0; 
+} 
+ 
+.sidebar li { 
+  padding: 12px; 
+  margin-bottom: 5px; 
+  cursor: pointer; 
+} 
+ 
+.content { 
+  flex: 1; 
+  padding: 30px; 
+} 
+ 
+.content h2 { 
+  color: #1976d2; 
+} 
+ 
+.footer { 
+  background-color: #333333; 
+  color: white; 
+  text-align: center; 
+  padding: 15px; 
+} 
+ 
+
+12. Step 7 – Run the Application 
+Execute: 
+npm run dev 
+Open the browser. 
+ 
+The webpage will have this structure: 
+┌──────────────────────────────────────────────┐ 
+│                  HEADER                      │ 
+│       Student Management System              │ 
+├──────────────┬───────────────────────────────┤ 
+│              │                               │ 
+│   SIDEBAR    │           CONTENT             │ 
+│              │                               │ 
+│   Home       │   Welcome to Student          │ 
+│   Students   │   Management System           │ 
+│   Courses    │                               │ 
+│   Contact    │   Main application content    │ 
+│              │                               │ 
+├──────────────┴───────────────────────────────┤ 
+│                  FOOTER                      │ 
+└──────────────────────────────────────────────┘ 
+ 
+13. Understand the Component Structure 
+The main React component is: 
+                     App 
+                      │ 
+       ┌──────────────┼──────────────┐ 
+       ↓              ↓              ↓ 
+    Header          Main           Footer 
+                      │ 
+                 ┌────┴────┐ 
+                 ↓         ↓ 
+              Sidebar    Content 
+App.jsx combines all the components. 
+ 
+14. What is a Frame-Based Layout? 
+Traditionally, HTML used <frameset> and <frame> to divide a browser window into different 
+sections. 
+For example: 
+Header 
+────────────── 
+Sidebar | Content 
+────────────── 
+Footer 
+
+Modern React applications generally do not use HTML <frame> or <frameset>. 
+Instead, React uses: 
+Components 
+    + 
+CSS Flexbox/Grid 
+    + 
+React Router when navigation is required 
+This gives a similar visual layout while keeping the application component-based. 
+ 
+15. Important React Concepts 
+Concept 
+Purpose 
+Component 
+Creates a reusable part of the UI 
+Header 
+Displays the top section 
+Sidebar 
+Displays navigation 
+Content 
+Displays main information 
+Footer 
+Displays bottom section 
+className 
+Connects JSX with CSS 
+Flexbox 
+Arranges Sidebar and Content 
+App.jsx 
+Combines all components 
+ 
+16. Student Activity 
+Modify the application to include: 
+Activity 1 
+Change: 
+Student Management System 
+to: 
+College Management System 
+Activity 2 
+Add another menu item: 
+Examinations 
+Activity 3 
+Change the Content component to display: 
+Name: Rahul 
+Register Number: 101 
+Department: CSE 
+Activity 4 
+Change the colors using App.css. 
+
+Activity 5 
+Create another component: 
+Notice.jsx 
+and display it inside the Content area. 
+ 
+17. Viva Questions 
+1. What is a React component? 
+A component is a reusable building block of a React user interface. 
+2. Can we use <frame> in React? 
+Technically HTML elements can be written, but the old <frame>/<frameset> approach is obsolete 
+and is not used for modern React layouts. 
+3. How can we create a frame-like layout in React? 
+We can use React components together with CSS Flexbox or CSS Grid. 
+4. What is the purpose of App.jsx? 
+App.jsx acts as the main application component and can combine other components. 
+5. What is Flexbox? 
+Flexbox is a CSS layout mechanism used to arrange elements in rows or columns. 
+6. Why are components useful? 
+Components make an application easier to organize, reuse, maintain, and develop. 
+ 
+18. Result 
+Thus, a frame-like webpage layout was successfully created using React components and CSS 
+Flexbox. The application contains separate Header, Sidebar, Content, and Footer components. 
+ 
