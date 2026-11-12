@@ -1,59 +1,157 @@
-# Ex. 7 React Lab Exercise: Frame-Based Layout Using React Components
+# React Lab Exercise 7: Frame-Based Layout Using React Components 
+## Name: LOGESH S 
+## Roll no: 2305001014
+## Department: CSE
 
-## Exercise Number
-Exercise 7
+## AIM
+### To develop a simple frame-based webpage layout using React components, consisting of a Header, Sidebar, Content area, and Footer.
 
-## Subject
-AI1067 - Modern Web Application Development (React JS Lab)
-
-## Student Details
-- **Name:** LOGESH S
-- **Roll No:** 2305001014
-- **Department:** B.Tech CSE
-- **College:** IST, NMV University
-
-## Objective
-To develop a simple frame-based webpage layout using React components, consisting of a
-
-## Description
-Ex. 7 React Lab Exercise: Frame-Based Layout Using React Components 
-1. Aim 
-To develop a simple frame-based webpage layout using React components, consisting of a 
-Header, Sidebar, Content area, and Footer. 
- 
-2. Objectives 
-After completing this experiment, students will be able to: 
-1. Create a React application using Vite. 
-2. Understand the concept of a frame-based webpage layout. 
-3. Create reusable React components. 
-4. Divide a webpage into Header, Sidebar, Content, and Footer sections. 
-5. Apply CSS to arrange React components. 
-6. Understand how components work together to create a complete webpage. 
- 
-3. Software Requirements 
-• Node.js 
-• Visual Studio Code 
-• React 
-• Vite 
-• Web Browser 
- 
-4. Create React Project 
-Open the terminal in VS Code. 
-npm create vite@latest react-fr
-
-## Technologies Used
-- React JS
-- Vite
-- JavaScript (JSX)
-- HTML5 / CSS3
-
-## How to Run
-```bash
-npm create vite@latest my-app -- --template react
-cd my-app
-npm install
-npm run dev
+## PROGRAM
+### i) Header.jsx
+```py
+function Header() {
+return (
+<header className="header">
+<h1>Student Management System</h1>
+</header>
+);
+}
+export default Header;
 ```
+### ii) Sidebar.jsx
+```py
+function Sidebar() {
+return (
+<aside className="sidebar">
+<h3>Menu</h3>
+<ul>
+<li>Home</li>
+<li>Students</li>
+<li>Courses</li>
+<li>Contact</li>
+</ul>
+</aside>
+);
+}
+export default Sidebar;
+```
+### iii) Content.jsx
+```py
+function Content() {
+return (
+<main className="content">
+<h2>Welcome to Student Management System</h2>
+<p>
+This is the main content area of the React application.
+</p>
+<p>
+React components can be arranged together to create
+different webpage layouts.
+</p>
+</main>
+);
+}
+export default Content;
+```
+### iv) Footer.jsx
+```py
+function Footer() {
+return (
+<footer className="footer">
+<p>© 2026 Student Management System</p>
+</footer>
+);
+}export default Footer;
+```
+### v) App.jsx
+```py
+import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import "./App.css";
+function App() {
+return (
+<div className="app">
+<Header />
+<div className="main">
+<Sidebar />
+<Content />
+</div>
+<Footer />
+</div>
+);
+}
+export default App;
+vi) App.css
+* {
+box-sizing: border-box;
+}
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+}
+.app {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+}
+.header {
+background-color: #1976d2;
+color: white;
+padding: 20px;
+text-align: center;
+}
+.main {
+display: flex;
+flex: 1;
+min-height: 400px;
+}
+.sidebar {
+width: 220px;
+flex-shrink: 0;
+background-color: #eeeeee;
+padding: 20px;
+}
+.sidebar ul {
+list-style: none;
+padding: 0;
+}
+.sidebar li {
+padding: 12px;
+margin-bottom: 5px;
+cursor: pointer;
+}
+.sidebar li:hover {
+background-color: #d0d0d0;
+}
+.content {
+flex: 1;
+padding: 30px;
+}
+.content h2 {
+color: #1976d2;
+}
+.footer {
+background-color: #333333;
+color: white;
+text-align: center;
+padding: 15px;
+}
+@media (max-width: 600px) {
+.main {
+flex-direction: column;
+}
+.sidebar {
+width: 100%;
+}
+.content {
+padding: 20px;
+}
+}
+```
+## OUTPUT
+<img width="1125" height="653" alt="image" src="https://github.com/user-attachments/assets/4ca37265-623f-4b0e-8fb8-f328b67993e7" />
 
-## Exercise Content
-See `exercise.txt` for complete exercise content and source code.
+## RESULT
+### Thus, a frame-based webpage layout was successfully created using React components and CSS Flexbox. The application contains separate Header, Sidebar, Content, and Footer components arranged into a complete webpage layout.
